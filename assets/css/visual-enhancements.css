@@ -1,0 +1,622 @@
+/* ========================================
+   VISUAL ENHANCEMENTS - EYE-CATCHING EFFECTS
+   ======================================== */
+
+/* ========================================
+   1. MODERN TYPOGRAPHY
+   ======================================== */
+body {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+}
+
+.hero h1,
+.portfolio h2,
+.services h2,
+.about h2,
+.testimonials h2 {
+    background: linear-gradient(135deg, #ffffff 0%, #e0e7ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    display: inline-block;
+}
+
+/* Animated underline for headings */
+.hero h1::after,
+.portfolio h2::after,
+.services h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, #667eea, #764ba2, transparent);
+    border-radius: 2px;
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+/* ========================================
+   2. ANIMATED GRADIENT BACKGROUND
+   ======================================== */
+body {
+    background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #4facfe);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Floating particles background */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+        radial-gradient(circle at 60% 70%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 300px 300px, 400px 400px, 500px 500px;
+    animation: floatParticles 20s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Ensure hero content is above particles */
+.hero > * {
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes floatParticles {
+    from { background-position: 0 0, 0 0, 0 0; }
+    to { background-position: 300px 300px, -400px 400px, 500px -500px; }
+}
+
+/* ========================================
+   3. GLASS MORPHISM EFFECTS
+   ======================================== */
+header,
+.service-selection,
+.services,
+.about,
+.testimonials,
+.contact-form {
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.gallery-item,
+.testimonial-card {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Service cards keep their gradient background for readability */
+.service-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: white !important;
+    backdrop-filter: none;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.service-card h3,
+.service-card p {
+    color: white !important;
+}
+
+/* ========================================
+   4. ENHANCED HOVER EFFECTS
+   ======================================== */
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gallery-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8));
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 1;
+}
+
+.gallery-item:hover::before {
+    opacity: 1;
+}
+
+.gallery-item img {
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.15) rotate(2deg);
+}
+
+.gallery-item h3 {
+    position: relative;
+    z-index: 2;
+    transition: all 0.5s ease;
+}
+
+.gallery-item:hover h3 {
+    color: white !important;
+    transform: translateY(-10px);
+}
+
+/* Image reveal animation */
+.gallery-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    z-index: 3;
+    transition: left 0.7s ease;
+}
+
+.gallery-item:hover::after {
+    left: 100%;
+}
+
+/* ========================================
+   5. NEON GLOW BUTTONS
+   ======================================== */
+.hero-book-btn,
+.cta-button,
+.submit-button,
+.book-now-nav {
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(118, 75, 162, 0.5),
+                0 0 40px rgba(118, 75, 162, 0.3),
+                0 0 60px rgba(118, 75, 162, 0.2);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(118, 75, 162, 0.5),
+                    0 0 40px rgba(118, 75, 162, 0.3),
+                    0 0 60px rgba(118, 75, 162, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(118, 75, 162, 0.7),
+                    0 0 60px rgba(118, 75, 162, 0.5),
+                    0 0 90px rgba(118, 75, 162, 0.3);
+    }
+}
+
+.hero-book-btn::before,
+.cta-button::before,
+.submit-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.hero-book-btn:hover::before,
+.cta-button:hover::before,
+.submit-button:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* ========================================
+   6. FLOATING ANIMATIONS
+   ======================================== */
+.hero h1 {
+    animation: float 3s ease-in-out infinite;
+}
+
+.hero p {
+    animation: float 3s ease-in-out 0.5s infinite;
+}
+
+.hero-book-btn {
+    animation: float 3s ease-in-out 1s infinite, pulse 2s infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* ========================================
+   Z-INDEX MANAGEMENT - Prevents Overlapping
+   ======================================== */
+/* Fixed header should always be on top */
+header {
+    z-index: 1000 !important;
+    position: fixed;
+}
+
+/* Hero section should be behind header */
+.hero {
+    position: relative;
+    z-index: 1;
+}
+
+/* Main content sections */
+.service-selection,
+.portfolio,
+.services,
+.about,
+.testimonials,
+.contact-form {
+    position: relative;
+    z-index: 10;
+    background-clip: padding-box;
+}
+
+/* Ensure proper spacing between sections to prevent overlap */
+main > div,
+main > section,
+.service-selection,
+.portfolio,
+.services,
+.about,
+.testimonials,
+.contact-form {
+    margin-bottom: 2rem;
+    clear: both;
+}
+
+/* Stats section spacing */
+.stats-section {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    position: relative;
+    z-index: 10;
+}
+
+/* Modals and overlays on top of everything */
+.lightbox {
+    z-index: 2000 !important;
+}
+
+.booking-modal {
+    z-index: 3000 !important;
+}
+
+.toast-container {
+    z-index: 10000 !important;
+}
+
+.page-loader {
+    z-index: 10000 !important;
+}
+
+/* Cursor effects should be on top but not block interaction */
+.cursor-dot,
+.cursor-outline {
+    z-index: 9999 !important;
+}
+
+/* ========================================
+   7. PARALLAX SCROLL EFFECT
+   ======================================== */
+.hero,
+.portfolio,
+.services {
+    position: relative;
+}
+
+.parallax-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: translateZ(-1px) scale(1.5);
+    z-index: -1;
+}
+
+/* ========================================
+   8. ENHANCED SERVICE CARDS
+   ======================================== */
+.service-card {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.3) 50%,
+        transparent 70%
+    );
+    transform: rotate(45deg);
+    transition: all 0.6s;
+}
+
+.service-card:hover::before {
+    left: 100%;
+}
+
+.service-card:hover {
+    transform: scale(1.05) translateY(-10px) rotateY(5deg);
+    box-shadow: 0 20px 60px rgba(118, 75, 162, 0.4);
+}
+
+/* ========================================
+   9. TESTIMONIAL CARDS ENHANCEMENT
+   ======================================== */
+.testimonial-card {
+    position: relative;
+    transition: all 0.4s ease;
+    border-left: 4px solid transparent;
+}
+
+.testimonial-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 0;
+    background: linear-gradient(180deg, #667eea, #764ba2);
+    transition: height 0.4s ease;
+}
+
+.testimonial-card:hover::before {
+    height: 100%;
+}
+
+.testimonial-card:hover {
+    transform: translateX(10px);
+    border-left-color: #667eea;
+}
+
+/* ========================================
+   10. SMOOTH SCROLL REVEALS
+   ======================================== */
+.fade-in-element {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-in-element.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered animation delay */
+.gallery-item:nth-child(1) { transition-delay: 0.1s; }
+.gallery-item:nth-child(2) { transition-delay: 0.2s; }
+.gallery-item:nth-child(3) { transition-delay: 0.3s; }
+.gallery-item:nth-child(4) { transition-delay: 0.4s; }
+.gallery-item:nth-child(5) { transition-delay: 0.5s; }
+.gallery-item:nth-child(6) { transition-delay: 0.6s; }
+
+/* ========================================
+   11. CONTACT FORM ENHANCEMENT
+   ======================================== */
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #764ba2;
+    box-shadow: 0 0 0 3px rgba(118, 75, 162, 0.2),
+                0 0 20px rgba(118, 75, 162, 0.1);
+    transform: translateY(-2px);
+}
+
+.form-group {
+    transition: all 0.3s ease;
+}
+
+.form-group:hover {
+    transform: translateX(5px);
+}
+
+/* ========================================
+   12. LIGHTBOX ENHANCEMENT
+   ======================================== */
+.lightbox {
+    background: rgba(0, 0, 0, 0.98);
+    backdrop-filter: blur(20px);
+}
+
+.lightbox-content {
+    animation: zoomIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.lightbox-content img {
+    box-shadow: 0 20px 80px rgba(0, 0, 0, 0.5),
+                0 0 100px rgba(102, 126, 234, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ========================================
+   13. CURSOR TRAIL EFFECT (Optional)
+   ======================================== */
+.cursor-dot {
+    width: 8px;
+    height: 8px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.2s ease;
+    box-shadow: 0 0 20px rgba(102, 126, 234, 0.6);
+}
+
+.cursor-outline {
+    width: 30px;
+    height: 30px;
+    border: 2px solid rgba(102, 126, 234, 0.5);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9998;
+    transition: all 0.15s ease;
+}
+
+/* ========================================
+   14. STATS COUNTER SECTION (if you add one)
+   ======================================== */
+.stats-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    padding: 3rem;
+    margin: 3rem auto;
+    max-width: 1200px;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 40px rgba(118, 75, 162, 0.3);
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.stat-label {
+    font-size: 1.1rem;
+    color: white;
+    margin-top: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* ========================================
+   15. MOBILE OPTIMIZATIONS
+   ======================================== */
+@media (max-width: 768px) {
+    /* Reduce animation intensity on mobile */
+    .hero-book-btn,
+    .cta-button,
+    .submit-button {
+        animation: none;
+    }
+
+    .gallery-item:hover img {
+        transform: scale(1.05);
+    }
+
+    .service-card:hover {
+        transform: scale(1.02);
+    }
+
+    /* Simplify glass morphism on mobile */
+    header,
+    .service-selection,
+    .services {
+        backdrop-filter: blur(10px);
+    }
+}
+
+/* ========================================
+   16. ACCESSIBILITY - Respect reduced motion
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ========================================
+   17. LOADING SCREEN (Optional)
+   ======================================== */
+.page-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.page-loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-spinner {
+    width: 60px;
+    height: 60px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}

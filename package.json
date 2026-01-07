@@ -1,0 +1,25 @@
+{
+  "name": "infnt-media-solutions",
+  "version": "3.0.0",
+  "description": "Professional photography portfolio website for 3rdEye_Visualz",
+  "main": "index.html",
+  "scripts": {
+    "dev": "lite-server",
+    "start": "lite-server",
+    "serve": "lite-server",
+    "build": "node build.js",
+    "prebuild": "echo Preparing for production build..."
+  },
+  "keywords": [
+    "photography",
+    "portfolio",
+    "website",
+    "infnt-media"
+  ],
+  "author": "3rdEye_Visualz",
+  "license": "UNLICENSED",
+  "private": true,
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  }
+}

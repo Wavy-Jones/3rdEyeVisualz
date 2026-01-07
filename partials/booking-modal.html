@@ -1,0 +1,147 @@
+<!-- Booking Modal -->
+<div id="bookingModal" class="booking-modal" role="dialog" aria-modal="true" aria-labelledby="bookingModalTitle">
+    <div class="booking-modal-content">
+        <button class="booking-modal-close" aria-label="Close booking form">&times;</button>
+        <h2 id="bookingModalTitle">Book Your Photography Session</h2>
+        <p class="booking-subtitle">Fill out the form below and we'll get back to you within 24 hours</p>
+
+        <form id="bookingForm" novalidate>
+            <div class="booking-form-row">
+                <div class="form-group">
+                    <label for="booking-name">Full Name *</label>
+                    <input type="text" id="booking-name" name="name" required aria-required="true">
+                    <span class="error-message">Please enter your full name</span>
+                </div>
+                <div class="form-group">
+                    <label for="booking-email">Email Address *</label>
+                    <input type="email" id="booking-email" name="email" required aria-required="true">
+                    <span class="error-message">Please enter a valid email address</span>
+                </div>
+            </div>
+
+            <div class="booking-form-row">
+                <div class="form-group">
+                    <label for="booking-phone">Phone Number *</label>
+                    <input type="tel" id="booking-phone" name="phone" required aria-required="true">
+                    <span class="error-message">Please enter your phone number</span>
+                </div>
+                <div class="form-group">
+                    <label for="booking-service">Photography Service *</label>
+                    <select id="booking-service" name="service" required aria-required="true">
+                        <option value="">--Please Select--</option>
+                        <option value="wedding">Wedding Photography</option>
+                        <option value="maternity">Maternity Photography</option>
+                        <option value="corporate">Corporate Photography</option>
+                        <option value="kids">Kids Photography</option>
+                        <option value="travel">Travel Photography</option>
+                        <option value="portrait">Portrait Photography</option>
+                        <option value="fashion">Fashion Photography</option>
+                        <option value="real-estate">Real Estate Photography</option>
+                    </select>
+                    <span class="error-message">Please select a service</span>
+                </div>
+            </div>
+
+            <div class="booking-form-row">
+                <div class="form-group calendar-form-group">
+                    <label for="booking-date">Preferred Date *</label>
+                    <input type="hidden" id="booking-date" name="date" required aria-required="true">
+                    <div class="calendar-container">
+                        <div class="calendar-header">
+                            <button type="button" class="calendar-nav-btn" id="prevMonth" aria-label="Previous month">&lsaquo;</button>
+                            <div class="calendar-month-year" id="calendarMonthYear"></div>
+                            <button type="button" class="calendar-nav-btn" id="nextMonth" aria-label="Next month">&rsaquo;</button>
+                        </div>
+                        <div class="calendar-weekdays">
+                            <div>Sun</div>
+                            <div>Mon</div>
+                            <div>Tue</div>
+                            <div>Wed</div>
+                            <div>Thu</div>
+                            <div>Fri</div>
+                            <div>Sat</div>
+                        </div>
+                        <div class="calendar-days" id="calendarDays"></div>
+                        <div class="calendar-legend">
+                            <div class="legend-item">
+                                <span class="legend-dot available"></span>
+                                <span>Available</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-dot booked"></span>
+                                <span>Booked</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-dot past"></span>
+                                <span>Past</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="selected-date-display" id="selectedDateDisplay">No date selected</div>
+                    <span class="error-message">Please select a date</span>
+                </div>
+                <div class="form-group">
+                    <label for="booking-time">Preferred Time Slot *</label>
+                    <div class="time-slots-container" id="timeSlotsContainer">
+                        <p class="time-slots-placeholder">Select a date to see available time slots</p>
+                    </div>
+                    <input type="hidden" id="booking-time" name="time" required aria-required="true">
+                    <span class="error-message">Please select a time slot</span>
+                </div>
+            </div>
+
+            <div class="booking-form-row">
+                <div class="form-group">
+                    <label for="booking-location">Event/Session Location *</label>
+                    <input type="text" id="booking-location" name="location" placeholder="e.g., Sandton, Johannesburg" required aria-required="true">
+                    <span class="error-message">Please enter the location</span>
+                </div>
+                <div class="form-group">
+                    <label for="booking-duration">Duration *</label>
+                    <select id="booking-duration" name="duration" required aria-required="true">
+                        <option value="">--Please Select--</option>
+                        <option value="1-2">1-2 hours</option>
+                        <option value="3-4">3-4 hours</option>
+                        <option value="5-6">5-6 hours</option>
+                        <option value="full-day">Full Day (8+ hours)</option>
+                        <option value="multi-day">Multiple Days</option>
+                    </select>
+                    <span class="error-message">Please select duration</span>
+                </div>
+            </div>
+
+            <div class="booking-form-row">
+                <div class="form-group">
+                    <label for="booking-guests">Number of Guests/People</label>
+                    <input type="number" id="booking-guests" name="guests" min="1" placeholder="e.g., 50" aria-required="false">
+                    <span class="error-message">Please enter a valid number</span>
+                </div>
+                <div class="form-group">
+                    <label for="booking-budget">Budget Range *</label>
+                    <select id="booking-budget" name="budget" required aria-required="true">
+                        <option value="">--Please Select--</option>
+                        <option value="under-5000">Under R5,000</option>
+                        <option value="5000-10000">R5,000 - R10,000</option>
+                        <option value="10000-20000">R10,000 - R20,000</option>
+                        <option value="20000-50000">R20,000 - R50,000</option>
+                        <option value="over-50000">Over R50,000</option>
+                        <option value="flexible">Flexible</option>
+                    </select>
+                    <span class="error-message">Please select your budget range</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="booking-message">Special Requirements / Additional Details *</label>
+                <textarea id="booking-message" name="message" rows="5" placeholder="Tell us about your vision, special requests, or any other details..." required aria-required="true"></textarea>
+                <span class="error-message">Please provide some details about your requirements</span>
+            </div>
+
+            <div class="booking-form-notice">
+                <p>📧 You will receive a confirmation email with booking details and our photographer will contact you within 24 hours to discuss your requirements.</p>
+            </div>
+
+            <button type="submit" class="submit-button">Submit Booking Request</button>
+        </form>
+    </div>
+</div>

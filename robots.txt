@@ -1,0 +1,39 @@
+# robots.txt for 3rdEye Visualz Photography Website
+# https://3rdeyevisualz.com/robots.txt
+
+User-agent: *
+Allow: /
+
+# Disallow admin areas (if any in future)
+Disallow: /admin/
+Disallow: /private/
+
+# Disallow node modules and source files
+Disallow: /node_modules/
+Disallow: /partials/
+Disallow: /*.json$
+
+# Allow CSS and JS for better indexing
+Allow: /assets/css/
+Allow: /assets/js/
+Allow: /assets/images/
+
+# Sitemap location
+Sitemap: https://3rdeyevisualz.com/sitemap.xml
+
+# Crawl delay (be nice to servers)
+Crawl-delay: 1
+
+# Specific bot instructions
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /assets/images/
+
+# Block bad bots
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10

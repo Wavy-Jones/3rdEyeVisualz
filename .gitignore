@@ -1,0 +1,37 @@
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary Files
+*.tmp
+*.log
+
+# Backup Files
+*.bak
+*.backup
+
+# Old/Legacy Files (after migration to assets/)
+# Uncomment these after confirming new structure works:
+# /styles.css
+# /script.js
+
+# Node modules
+node_modules/
+npm-debug.log
+package-lock.json
+
+# Environment Files
+.env
+.env.local
+
+# Build Files (if using build tools)
+dist/
+build/

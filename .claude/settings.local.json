@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(move README.md README_OLD.md)",
+      "Bash(move README_NEW.md README.md)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
